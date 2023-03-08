@@ -1,6 +1,7 @@
 import './App.css';
 import RandomFact from "./components/RandomFact/RandomFact";
 import Time from "./components/Time/Time";
+import Weather from "./components/Weather/Weather";
 
 function App() {
 
@@ -11,6 +12,10 @@ function App() {
           </div>
           <div>
               <RandomFact/>
+          </div>
+
+          <div>
+              <Weather/>
           </div>
 
       </div>

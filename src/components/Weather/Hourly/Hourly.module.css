@@ -1,0 +1,25 @@
+
+.table {
+display: grid;
+    grid-template-areas: "time temp apparent rain ";
+
+
+}
+
+.time {
+    grid-area: time;
+
+}
+
+.temperature {
+    grid-area: temp;
+
+}
+
+.rain {
+    grid-area: rain;
+}
+
+.apparent {
+    grid-area: apparent;
+}

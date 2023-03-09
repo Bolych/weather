@@ -3,43 +3,47 @@
 
 import {useEffect, useState} from "react";
 import axios from "axios";
+import FirstDay from "./Hourly/FirstDay";
+import Daily from "./Hourly/Daily";
 
 const url = "https://api.open-meteo.com/v1/forecast"
 
 
 function Weather() {
-    const [post, setPost] = useState({})
+    const [weather, setWeather] = useState([])
+
 
     const fetchData = async (lat, lon, timezone) => {
         try {
             const res = await axios(url,
-                {params: {
-                    latitude: lat,
+                {
+                    params: {
+                        latitude: lat,
                         longitude: lon,
                         timezone,
                         hourly: 'temperature_2m,apparent_temperature,rain,showers,snowfall',
                         daily: 'weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,windspeed_10m_max',
                         current_weather: true,
-                    }})
-            setPost(res.data);
+                    }
+                })
+            setWeather(res.data);
+
             console.log(`res: ${res}`)
-                console.log(res.data.hourly.rain)
-            console.log(  `Data hourly: ${res.data.hourly.temperature_2m}`)
-            console.log(`Post: ${post.temperature_2m}`)
+            console.log(res.data.hourly.rain)
+            console.log(`Data hourly: ${res.data.hourly.temperature_2m}`)
+            console.log(`Post: ${res.data.daily}`)
             console.log(`weathercode: ${res.data.daily.weathercode}`)
-            console.log(`temp 2m max daily: ${post.daily.temperature_2m_max}`)
+            console.log(`wind: ${res.data.daily.windspeed_10m_max}`)
         } catch (err) {
             console.log(err)
         }
     }
-    console.log(`output: ${post}`)
-
+    // console.log(`output: ${weather.daily.windspeed_10m_max}`)
 
 
     useEffect(() => {
-        fetchData(51.54, 46.01, Intl.DateTimeFormat().resolvedOptions().timeZone )
+        fetchData(42.87, 74.59, Intl.DateTimeFormat().resolvedOptions().timeZone)
     }, [])
-
 
     return (
 
@@ -47,22 +51,29 @@ function Weather() {
             <h1>Weather</h1>
 
             <div>
-                {post.hourly && (
+                {weather.hourly && (
                     <div>
-                        <p>{post.timezone}</p>
-                        <p>Temperature hourly: {post.hourly.temperature_2m}°C</p>
-                        <p>Rain: {post.hourly.rain}</p>
+                        <p>{weather.timezone}</p>
+                        <FirstDay apparentTemp={weather.hourly.apparent_temperature} hourlyRain={weather.hourly.rain} hourlyTemp={weather.hourly.temperature_2m}/>
+
                     </div>
                 )}
             </div>
+            <br/>
             <div>
-                {post.daily && (
+
+            </div>
+
+            <div>
+                {weather.daily && (
                     <div>
-                        <p>Daily t {post.daily.temperature_2m_max}</p>
-<p>Wind speed {post.daily.windspeed_10m_max}</p>
+<Daily dailyTemp={weather.daily.temperature_2m_max} windSpeed={weather.daily.windspeed_10m_max} />
+
                     </div>
                 )}
             </div>
+
+
         </div>
     );
 }

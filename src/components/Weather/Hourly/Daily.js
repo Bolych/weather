@@ -1,6 +1,8 @@
 const Daily = (props) => {
     let wind = (props.windSpeed[0].toFixed(2))
-    let temperature = Math.round(props.dailyTemp[0])
+    let temperatureMax = Math.round(props.dailyTemp[0])
+    let temperatureMin = Math.round(props.dailyMinTemperature[0])
+
 
 
     return (
@@ -8,9 +10,7 @@ const Daily = (props) => {
          {/*<p>Daily temp: {props.dailyTemp}</p>*/}
          {/*<p>Wind speed:  {props.windSpeed}</p>*/}
             <p>Today's wind: {wind}</p>
-            <p>Average temperature: {temperature}</p>
-
-
+            <p>Today's temperature: {temperatureMin} - {temperatureMax}</p>
         </div>
     )
 

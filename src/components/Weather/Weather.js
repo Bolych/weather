@@ -5,12 +5,18 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 import FirstDay from "./Hourly/FirstDay";
 import Daily from "./Hourly/Daily";
+import SecondDay from "./Hourly/SecondDay";
+import Geocode from "../Geocode/Geocode";
 
 const url = "https://api.open-meteo.com/v1/forecast"
 
 
 function Weather() {
-    const [weather, setWeather] = useState([])
+    const [weather, setWeather] = useState('')
+    const [shortLatitude, setShortLatitude] = useState('')
+    const [shortLongitude, setShortLongitude] = useState('')
+
+
 
 
     const fetchData = async (lat, lon, timezone) => {
@@ -28,12 +34,6 @@ function Weather() {
                 })
             setWeather(res.data);
 
-            console.log(`res: ${res}`)
-            console.log(res.data.hourly.rain)
-            console.log(`Data hourly: ${res.data.hourly.temperature_2m}`)
-            console.log(`Post: ${res.data.daily}`)
-            console.log(`weathercode: ${res.data.daily.weathercode}`)
-            console.log(`wind: ${res.data.daily.windspeed_10m_max}`)
         } catch (err) {
             console.log(err)
         }
@@ -42,21 +42,40 @@ function Weather() {
 
 
     useEffect(() => {
-        fetchData(42.87, 74.59, Intl.DateTimeFormat().resolvedOptions().timeZone)
-    }, [])
+        fetchData(shortLatitude, shortLongitude, Intl.DateTimeFormat().resolvedOptions().timeZone)
+    }, [shortLatitude, shortLongitude])
+
+
+    console.log(`passed lat: ${shortLatitude}`)
 
     return (
 
         <div>
             <h1>Weather</h1>
+            <p>{weather.timezone}</p>
+            <Geocode setShortLatitude={setShortLatitude} setShortLongitude={setShortLongitude} />
+<br/>
+            <div>
+                {weather.daily && (
+                    <div>
+                        <Daily dailyTemp={weather.daily.temperature_2m_max}
+                               windSpeed={weather.daily.windspeed_10m_max}
+                               dailyMinTemperature={weather.daily.temperature_2m_min}/>
 
+                    </div>
+                )}
+            </div>
+            <br/>
             <div>
                 {weather.hourly && (
                     <div>
-                        <p>{weather.timezone}</p>
-                        <FirstDay apparentTemp={weather.hourly.apparent_temperature} hourlyRain={weather.hourly.rain} hourlyTemp={weather.hourly.temperature_2m}/>
-
+                        <FirstDay apparentTemp={weather.hourly.apparent_temperature} hourlyRain={weather.hourly.rain}
+                                  hourlyTemp={weather.hourly.temperature_2m}/>
+                        <br/>
+                        <SecondDay apparentTemp={weather.hourly.apparent_temperature} hourlyRain={weather.hourly.rain}
+                                   hourlyTemp={weather.hourly.temperature_2m}/>
                     </div>
+
                 )}
             </div>
             <br/>
@@ -64,14 +83,7 @@ function Weather() {
 
             </div>
 
-            <div>
-                {weather.daily && (
-                    <div>
-<Daily dailyTemp={weather.daily.temperature_2m_max} windSpeed={weather.daily.windspeed_10m_max} />
 
-                    </div>
-                )}
-            </div>
 
 
         </div>

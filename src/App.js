@@ -2,6 +2,8 @@ import './App.css';
 import RandomFact from "./components/RandomFact/RandomFact";
 import Time from "./components/Time/Time";
 import Weather from "./components/Weather/Weather";
+import Geocode from "./components/Geocode/Geocode";
+import GeocodeInput from "./components/Geocode/Geocode";
 
 function App() {
 
@@ -17,6 +19,11 @@ function App() {
           <div>
               <Weather/>
           </div>
+<br/>
+<br/>
+<br/>
+
+
 
       </div>
 

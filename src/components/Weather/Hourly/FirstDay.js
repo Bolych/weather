@@ -1,10 +1,33 @@
 import s from './Hourly.module.css'
+import {useEffect, useState} from "react";
 
 
 const FirstDay = (props) => {
 
+    const [currentDate, setCurrentDate] = useState("");
+
+    useEffect(() => {
+        // get component's date
+        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const currentDateObj = new Date();
+        const dayOfWeek = currentDateObj.getDay() ;
+        const month = String(currentDateObj.getMonth() + 1).padStart(2, "0"); // Ensure month has two digits
+        const day = currentDateObj.getDate();
+        const year = currentDateObj.getFullYear();
+        const currentDayName = dayNames[dayOfWeek];
+        const formattedDate = `${currentDayName}, ${month}/${day}/${year}`;
+        setCurrentDate(formattedDate);
+    }, []);
+
+
+
+
+
+
     return (
         <div>
+            <p>Today: {currentDate}</p>
+
             <div className={s.table}>
             <ul className={s.time}>
                 <li>Time</li>

@@ -41,6 +41,7 @@ function Weather() {
     // console.log(`output: ${weather.daily.windspeed_10m_max}`)
 
 
+
     useEffect(() => {
         fetchData(shortLatitude, shortLongitude, Intl.DateTimeFormat().resolvedOptions().timeZone)
     }, [shortLatitude, shortLongitude])
@@ -52,7 +53,7 @@ function Weather() {
 
         <div>
             <h1>Weather</h1>
-            <p>{weather.timezone}</p>
+            <p>We detect your area as: {weather.timezone}</p>
             <Geocode setShortLatitude={setShortLatitude} setShortLongitude={setShortLongitude} />
 <br/>
             <div>
@@ -70,10 +71,16 @@ function Weather() {
                 {weather.hourly && (
                     <div>
                         <FirstDay apparentTemp={weather.hourly.apparent_temperature} hourlyRain={weather.hourly.rain}
-                                  hourlyTemp={weather.hourly.temperature_2m}/>
+                                  hourlyTemp={weather.hourly.temperature_2m}
+                                  hourlyShowers={weather.hourly.showers}
+                                  hourlySnow={weather.hourly.snowfall}
+
+                        />
                         <br/>
                         <SecondDay apparentTemp={weather.hourly.apparent_temperature} hourlyRain={weather.hourly.rain}
-                                   hourlyTemp={weather.hourly.temperature_2m}/>
+                                   hourlyTemp={weather.hourly.temperature_2m}
+                                   hourlyShowers={weather.hourly.showers}
+                                   hourlySnow={weather.hourly.snowfall}/>
                     </div>
 
                 )}

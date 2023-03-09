@@ -57,11 +57,24 @@ const SecondDay = (props) => {
 
                 <ul className={s.rain}>
                     <li>Rain</li>
-                    {props.hourlyRain.slice(0, 24).map((item, index) => (
+                    {props.hourlyRain.slice(24, 48).map((item, index) => (
                         <li key={index}>{item}</li>
                     ))}
                 </ul>
 
+                <ul className={s.showers}>
+                    <li>Showers</li>
+                    {props.hourlyShowers.slice(24, 48).map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
+
+                <ul className={s.snow}>
+                    <li>Snow</li>
+                    {props.hourlySnow.slice(24, 48).map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
 
             </div>
 

@@ -56,6 +56,20 @@ const FirstDay = (props) => {
                 ))}
             </ul>
 
+                <ul className={s.showers}>
+                    <li>Showers</li>
+                    {props.hourlyShowers.slice(0, 24).map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
+
+                <ul className={s.snow}>
+                    <li>Snow</li>
+                    {props.hourlySnow.slice(0, 24).map((item, index) => (
+                        <li key={index}>{item}</li>
+                    ))}
+                </ul>
+
 
             </div>
 

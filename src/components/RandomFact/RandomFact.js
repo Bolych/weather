@@ -15,6 +15,8 @@ function RandomFact() {
             });
     }, []);
 
+
+
     return (
         <div>
             <h1>Random Useless Fact</h1>

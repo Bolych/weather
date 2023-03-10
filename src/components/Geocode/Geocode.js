@@ -1,17 +1,14 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
-
-// https://api.opencagedata.com/geocode/v1/json?key=af0e1b37c47143bab3e89eb309b85bc9&q=Frauenplan+1%2C+99423+Weimar%2C+Germany&pretty=1
-
-
-const API_KEY = "af0e1b37c47143bab3e89eb309b85bc9"
+import s from './Geocode.module.css'
 
 const Geocode = (props) => {
 
-    const [latitude, setLatitude] = useState('10')
-const [longitude, setLongitude] = useState('10')
-    const [city, setCity] = useState('Moscow');
-    const URL = `https://api.opencagedata.com/geocode/v1/json?key=af0e1b37c47143bab3e89eb309b85bc9&q=${city}`
+    const [latitude, setLatitude] = useState('35.69')
+const [longitude, setLongitude] = useState('51.39')
+    const [city, setCity] = useState('');
+    const [cityDisplayed, setCityDisplayed] = useState('Tehran')
+    const URL = `https://api.opencagedata.com/geocode/v1/json?key=af0e1b37c47143bab3e89eb309b85bc9&q=${encodeURIComponent(city)}`
 
 
     const handleCityChange = (event) => {
@@ -50,6 +47,7 @@ const [longitude, setLongitude] = useState('10')
 
             setLatitude(shortenedLatValue)
             setLongitude(shortenedLongValue)
+            setCityDisplayed(city);
 
         } catch (err) {
             console.log(err)
@@ -60,20 +58,28 @@ const [longitude, setLongitude] = useState('10')
         handleGetCoordinates()
         props.setShortLatitude(latitude)
         props.setShortLongitude(longitude)
+        setCity('');
         console.log(city)
     }, [latitude, longitude])
 
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            handleGetCoordinates();
+            setCity('');
+        }
+    };
 
 
     return (
         <div>
             <label>
                 Enter a city:
-                <input type="text" value={city} onChange={handleCityChange} />
+                <input className={s.inputCity} type="text" value={city} onChange={handleCityChange} onKeyDown={handleKeyPress} />
             </label>
             <button onClick={handleGetCoordinates}>Get Coordinates</button>
             {latitude && longitude && (
                 <div>
+                    <p>Current place: {cityDisplayed}</p>
                     Latitude: {latitude}<br />
                     Longitude: {longitude}
                 </div>
@@ -83,14 +89,6 @@ const [longitude, setLongitude] = useState('10')
 }
 
 
-// const latitude = "50° 58' 39.03816'' N";
-// const regex = /(\d+)° (\d+)' ([\d.]+)''/;
-// const matches = regex.exec(latitude);
-// const degrees = parseInt(matches[1]);
-// const minutes = parseInt(matches[2]);
-// const seconds = parseFloat(matches[3]);
-// const decimalDegrees = degrees + (minutes / 60) + (seconds / 3600);
-// const result = decimalDegrees.toFixed(2);
 
 
 export default Geocode

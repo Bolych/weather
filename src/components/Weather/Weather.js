@@ -27,8 +27,8 @@ function Weather() {
                         latitude: lat,
                         longitude: lon,
                         timezone,
-                        hourly: 'temperature_2m,apparent_temperature,rain,showers,snowfall',
-                        daily: 'weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,windspeed_10m_max',
+                        hourly: 'temperature_2m,apparent_temperature,precipitation,precipitation_probability,windspeed_10m,relativehumidity_2m,cloudcover',
+                        daily: 'weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,windspeed_10m_max,sunrise,sunset',
                         current_weather: true,
                     }
                 })
@@ -72,15 +72,23 @@ function Weather() {
                     <div>
                         <FirstDay apparentTemp={weather.hourly.apparent_temperature} hourlyRain={weather.hourly.rain}
                                   hourlyTemp={weather.hourly.temperature_2m}
-                                  hourlyShowers={weather.hourly.showers}
-                                  hourlySnow={weather.hourly.snowfall}
+                                  hourlyWind={weather.hourly.windspeed_10m}
+                                  precipitation={weather.hourly.precipitation}
+                                  precipitationProbability={weather.hourly.precipitation_probability}
+                                  sunrise={weather.daily.sunrise}
+                                  sunset={weather.daily.sunset}
+                                  humidity={weather.hourly.relativehumidity_2m}
+
 
                         />
                         <br/>
                         <SecondDay apparentTemp={weather.hourly.apparent_temperature} hourlyRain={weather.hourly.rain}
                                    hourlyTemp={weather.hourly.temperature_2m}
                                    hourlyShowers={weather.hourly.showers}
-                                   hourlySnow={weather.hourly.snowfall}/>
+                                   hourlySnow={weather.hourly.snowfall}
+                                   precipitation={weather.hourly.precipitation}
+                                   precipitationProbability={weather.hourly.precipitation_probability}
+                        />
                     </div>
 
                 )}

@@ -55,26 +55,21 @@ const SecondDay = (props) => {
                     ))}
                 </ul>
 
-                <ul className={s.rain}>
-                    <li>Rain</li>
-                    {props.hourlyRain.slice(24, 48).map((item, index) => (
+
+                <ul className={s.precipitation}>
+                    <li>precipitation</li>
+                    {props.precipitation.slice(24, 48).map((item, index) => (
                         <li key={index}>{item}</li>
                     ))}
                 </ul>
 
-                <ul className={s.showers}>
-                    <li>Showers</li>
-                    {props.hourlyShowers.slice(24, 48).map((item, index) => (
+                <ul className={s.precipitationProbability}>
+                    <li>precipitation probability</li>
+                    {props.precipitationProbability.slice(24, 48).map((item, index) => (
                         <li key={index}>{item}</li>
                     ))}
                 </ul>
 
-                <ul className={s.snow}>
-                    <li>Snow</li>
-                    {props.hourlySnow.slice(24, 48).map((item, index) => (
-                        <li key={index}>{item}</li>
-                    ))}
-                </ul>
 
             </div>
 

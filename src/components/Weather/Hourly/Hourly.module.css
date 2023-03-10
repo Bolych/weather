@@ -1,33 +1,107 @@
 
-.table {
-display: grid;
-    grid-template-areas: "time temp apparent rain showers snow ";
+.tableBody {
+    overflow: hidden;
+    background-color: rgba(204,190,170,0.74);
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 1fr;
+    /*grid-template-rows: 200px 1fr;*/
+    grid-template-areas:
+            "timeTempBlock comfortBlock precipitationsBlock";
+    white-space: nowrap;
+    overflow-x: scroll;
 
 
 }
 
-.time {
-    grid-area: time;
+
+
+
+li:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.timeTempBlock{
+
+
+    grid-area: timeTempBlock;
+    display: grid;
+    grid-template-areas:
+    "time temp"
+}
+
+
+.timeTempBlockHeader{
+    grid-area: timeTempBlockHeader;
+    text-align: center;
 
 }
 
-.temperature {
-    grid-area: temp;
+.timeTempBlockTime{
+grid-area: time;
+
 
 }
 
-.rain {
-    grid-area: rain;
+.timeTempBlockTemperature{
+grid-area: temp;
+    text-align: center;
+
 }
 
-.apparent {
+.comfortBlock{
+
+    grid-area: comfortBlock;
+    display: grid;
+    grid-template-areas:
+    "apparent windspeed humidity"
+}
+
+.comfortBlockHeader{
+grid-area: comfortBlockHeader;
+    text-align: center;
+
+}
+
+.apparent{
     grid-area: apparent;
+    text-align: center;
 }
 
-.snow {
-    grid-area: snow;
+.windspeed{
+    grid-area: windspeed;
+    text-align: center;
 }
 
-.showers {
-    grid-area: showers;
+.humidity{
+    grid-area: humidity;
+    text-align: center;
+
 }
+
+.precipitationsBlock {
+
+    grid-area: precipitationsBlock;
+    display: grid;
+    grid-template-areas:
+    "precipitationsProbability precipitationsAmount "
+}
+
+.precipitationsAmount {
+    grid-area: precipitationsAmount;
+    text-align: center;
+
+}
+
+.precipitationsProbability {
+    grid-area: precipitationsProbability;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 580px) {
+    .tableBody {
+        overflow-x: scroll;
+    }
+}
+
+

@@ -9,11 +9,7 @@
             "timeTempBlock comfortBlock precipitationsBlock";
     white-space: nowrap;
     overflow-x: scroll;
-
-
 }
-
-
 
 
 li:nth-child(odd) {

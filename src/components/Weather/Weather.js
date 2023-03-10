@@ -5,6 +5,11 @@ import DayTwo from "./Hourly/DayTwo";
 import Geocode from "../Geocode/Geocode";
 import {Route, Routes} from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import DayThree from "./Hourly/DayThree";
+import DayFour from "./Hourly/DayFour";
+import DayFive from "./Hourly/DayFive";
+import DaySix from "./Hourly/DaySix";
+import DaySeven from "./Hourly/DaySeven";
 
 const url = "https://api.open-meteo.com/v1/forecast"
 
@@ -66,22 +71,18 @@ function Weather() {
             <div>
                 {weather.hourly && (
                     <div>
-
-
-
-
                         <Routes>
                             <Route path='/' element={<DayOne apparentTemp={weather.hourly.apparent_temperature}
-                                hourlyRain={weather.hourly.rain}
-                                hourlyTemp={weather.hourly.temperature_2m}
-                                hourlyWind={weather.hourly.windspeed_10m}
-                                precipitation={weather.hourly.precipitation}
-                                precipitationProbability={weather.hourly.precipitation_probability}
-                                sunrise={weather.daily.sunrise}
-                                sunset={weather.daily.sunset}
-                                humidity={weather.hourly.relativehumidity_2m} />} />
+                                                             hourlyRain={weather.hourly.rain}
+                                                             hourlyTemp={weather.hourly.temperature_2m}
+                                                             hourlyWind={weather.hourly.windspeed_10m}
+                                                             precipitation={weather.hourly.precipitation}
+                                                             precipitationProbability={weather.hourly.precipitation_probability}
+                                                             sunrise={weather.daily.sunrise}
+                                                             sunset={weather.daily.sunset}
+                                                             humidity={weather.hourly.relativehumidity_2m}/>}/>
 
-                            <Route path='dayone' element={<DayOne apparentTemp={weather.hourly.apparent_temperature}
+                            <Route path='today' element={<DayOne apparentTemp={weather.hourly.apparent_temperature}
                                                                   hourlyRain={weather.hourly.rain}
                                                                   hourlyTemp={weather.hourly.temperature_2m}
                                                                   hourlyWind={weather.hourly.windspeed_10m}
@@ -92,7 +93,7 @@ function Weather() {
                                                                   humidity={weather.hourly.relativehumidity_2m}
                             />}/>
 
-                            <Route path="daytwo" element={<DayTwo apparentTemp={weather.hourly.apparent_temperature}
+                            <Route path="tomorrow" element={<DayTwo apparentTemp={weather.hourly.apparent_temperature}
                                                                   hourlyRain={weather.hourly.rain}
                                                                   hourlyTemp={weather.hourly.temperature_2m}
                                                                   hourlyWind={weather.hourly.windspeed_10m}
@@ -103,6 +104,60 @@ function Weather() {
                                                                   humidity={weather.hourly.relativehumidity_2m}
                             />}/>
 
+                            <Route path="3" element={<DayThree apparentTemp={weather.hourly.apparent_temperature}
+                                                                  hourlyRain={weather.hourly.rain}
+                                                                  hourlyTemp={weather.hourly.temperature_2m}
+                                                                  hourlyWind={weather.hourly.windspeed_10m}
+                                                                  precipitation={weather.hourly.precipitation}
+                                                                  precipitationProbability={weather.hourly.precipitation_probability}
+                                                                  sunrise={weather.daily.sunrise}
+                                                                  sunset={weather.daily.sunset}
+                                                                  humidity={weather.hourly.relativehumidity_2m}
+                            />}/>
+
+                            <Route path="4" element={<DayFour apparentTemp={weather.hourly.apparent_temperature}
+                                                               hourlyRain={weather.hourly.rain}
+                                                               hourlyTemp={weather.hourly.temperature_2m}
+                                                               hourlyWind={weather.hourly.windspeed_10m}
+                                                               precipitation={weather.hourly.precipitation}
+                                                               precipitationProbability={weather.hourly.precipitation_probability}
+                                                               sunrise={weather.daily.sunrise}
+                                                               sunset={weather.daily.sunset}
+                                                               humidity={weather.hourly.relativehumidity_2m}
+                            />}/>
+
+                            <Route path="5" element={<DayFive apparentTemp={weather.hourly.apparent_temperature}
+                                                               hourlyRain={weather.hourly.rain}
+                                                               hourlyTemp={weather.hourly.temperature_2m}
+                                                               hourlyWind={weather.hourly.windspeed_10m}
+                                                               precipitation={weather.hourly.precipitation}
+                                                               precipitationProbability={weather.hourly.precipitation_probability}
+                                                               sunrise={weather.daily.sunrise}
+                                                               sunset={weather.daily.sunset}
+                                                               humidity={weather.hourly.relativehumidity_2m}
+                            />}/>
+
+                            <Route path="6" element={<DaySix apparentTemp={weather.hourly.apparent_temperature}
+                                                               hourlyRain={weather.hourly.rain}
+                                                               hourlyTemp={weather.hourly.temperature_2m}
+                                                               hourlyWind={weather.hourly.windspeed_10m}
+                                                               precipitation={weather.hourly.precipitation}
+                                                               precipitationProbability={weather.hourly.precipitation_probability}
+                                                               sunrise={weather.daily.sunrise}
+                                                               sunset={weather.daily.sunset}
+                                                               humidity={weather.hourly.relativehumidity_2m}
+                            />}/>
+
+                            <Route path="7" element={<DaySeven apparentTemp={weather.hourly.apparent_temperature}
+                                                               hourlyRain={weather.hourly.rain}
+                                                               hourlyTemp={weather.hourly.temperature_2m}
+                                                               hourlyWind={weather.hourly.windspeed_10m}
+                                                               precipitation={weather.hourly.precipitation}
+                                                               precipitationProbability={weather.hourly.precipitation_probability}
+                                                               sunrise={weather.daily.sunrise}
+                                                               sunset={weather.daily.sunset}
+                                                               humidity={weather.hourly.relativehumidity_2m}
+                            />}/>
 
                         </Routes>
                     </div>

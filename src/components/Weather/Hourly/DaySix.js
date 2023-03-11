@@ -1,5 +1,6 @@
 import s from './Hourly.module.css'
 import {useEffect, useState} from "react";
+import WeatherImage from "../WeatherImage";
 
 
 const DaySix = (props) => {
@@ -27,6 +28,8 @@ const DaySix = (props) => {
             {/*            Made split because i didn't like initial time format*/}
             <p>Sunrise: {props.sunrise[5].split("T")[1]}</p>
             <p>Sunset: {props.sunset[5].split("T")[1]}</p>
+            <WeatherImage weatherImage={props.weathercodeDaily[5]}/>
+
 
 
             {/*Don't like tables, made table this way*/}

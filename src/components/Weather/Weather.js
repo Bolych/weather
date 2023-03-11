@@ -27,12 +27,13 @@ function Weather() {
                         latitude: lat,
                         longitude: lon,
                         timezone,
-                        hourly: 'temperature_2m,apparent_temperature,precipitation,precipitation_probability,windspeed_10m,relativehumidity_2m,cloudcover',
-                        daily: 'weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,windspeed_10m_max,sunrise,sunset',
+                        hourly: 'temperature_2m,apparent_temperature,precipitation,precipitation_probability,windspeed_10m,relativehumidity_2m,cloudcover,weathercode',
+                        daily: 'weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,windspeed_10m_max,sunrise,sunset,weathercode',
                         current_weather: true,
                     }
                 })
             setWeather(res.data);
+
 
         } catch (err) {
             console.log(err)
@@ -46,7 +47,6 @@ function Weather() {
     }, [shortLatitude, shortLongitude])
 
 
-    console.log(`passed lat: ${shortLatitude}`)
 
     return (
 
@@ -72,7 +72,7 @@ function Weather() {
                 {weather.hourly && (
                     <div>
                         <Routes>
-                            <Route path='/' element={<DayOne apparentTemp={weather.hourly.apparent_temperature}
+                            <Route path='/weather' element={<DayOne apparentTemp={weather.hourly.apparent_temperature}
                                                              hourlyRain={weather.hourly.rain}
                                                              hourlyTemp={weather.hourly.temperature_2m}
                                                              hourlyWind={weather.hourly.windspeed_10m}
@@ -80,6 +80,7 @@ function Weather() {
                                                              precipitationProbability={weather.hourly.precipitation_probability}
                                                              sunrise={weather.daily.sunrise}
                                                              sunset={weather.daily.sunset}
+                                                             weathercodeDaily={weather.daily.weathercode}
                                                              humidity={weather.hourly.relativehumidity_2m}/>}/>
 
                             <Route path='today' element={<DayOne apparentTemp={weather.hourly.apparent_temperature}
@@ -88,7 +89,10 @@ function Weather() {
                                                                   hourlyWind={weather.hourly.windspeed_10m}
                                                                   precipitation={weather.hourly.precipitation}
                                                                   precipitationProbability={weather.hourly.precipitation_probability}
-                                                                  sunrise={weather.daily.sunrise}
+                                                                 weathercodeHourly={weather.hourly.weathercode}
+                                                                 weathercodeDaily={weather.daily.weathercode}
+
+                                                                 sunrise={weather.daily.sunrise}
                                                                   sunset={weather.daily.sunset}
                                                                   humidity={weather.hourly.relativehumidity_2m}
                             />}/>
@@ -102,6 +106,8 @@ function Weather() {
                                                                   sunrise={weather.daily.sunrise}
                                                                   sunset={weather.daily.sunset}
                                                                   humidity={weather.hourly.relativehumidity_2m}
+                                                                    weathercodeHourly={weather.hourly.weathercode}
+                                                                    weathercodeDaily={weather.daily.weathercode}
                             />}/>
 
                             <Route path="3" element={<DayThree apparentTemp={weather.hourly.apparent_temperature}
@@ -113,6 +119,8 @@ function Weather() {
                                                                   sunrise={weather.daily.sunrise}
                                                                   sunset={weather.daily.sunset}
                                                                   humidity={weather.hourly.relativehumidity_2m}
+                                                               weathercodeHourly={weather.hourly.weathercode}
+                                                               weathercodeDaily={weather.daily.weathercode}
                             />}/>
 
                             <Route path="4" element={<DayFour apparentTemp={weather.hourly.apparent_temperature}
@@ -124,6 +132,8 @@ function Weather() {
                                                                sunrise={weather.daily.sunrise}
                                                                sunset={weather.daily.sunset}
                                                                humidity={weather.hourly.relativehumidity_2m}
+                                                              weathercodeHourly={weather.hourly.weathercode}
+                                                              weathercodeDaily={weather.daily.weathercode}
                             />}/>
 
                             <Route path="5" element={<DayFive apparentTemp={weather.hourly.apparent_temperature}
@@ -135,6 +145,8 @@ function Weather() {
                                                                sunrise={weather.daily.sunrise}
                                                                sunset={weather.daily.sunset}
                                                                humidity={weather.hourly.relativehumidity_2m}
+                                                              weathercodeHourly={weather.hourly.weathercode}
+                                                              weathercodeDaily={weather.daily.weathercode}
                             />}/>
 
                             <Route path="6" element={<DaySix apparentTemp={weather.hourly.apparent_temperature}
@@ -146,6 +158,8 @@ function Weather() {
                                                                sunrise={weather.daily.sunrise}
                                                                sunset={weather.daily.sunset}
                                                                humidity={weather.hourly.relativehumidity_2m}
+                                                             weathercodeHourly={weather.hourly.weathercode}
+                                                             weathercodeDaily={weather.daily.weathercode}
                             />}/>
 
                             <Route path="7" element={<DaySeven apparentTemp={weather.hourly.apparent_temperature}
@@ -157,6 +171,8 @@ function Weather() {
                                                                sunrise={weather.daily.sunrise}
                                                                sunset={weather.daily.sunset}
                                                                humidity={weather.hourly.relativehumidity_2m}
+                                                               weathercodeHourly={weather.hourly.weathercode}
+                                                               weathercodeDaily={weather.daily.weathercode}
                             />}/>
 
                         </Routes>

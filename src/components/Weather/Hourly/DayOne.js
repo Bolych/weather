@@ -1,9 +1,13 @@
+import image1 from "../../../images/condition-icons/brokenclouds.png"
+
 import s from './Hourly.module.css'
 import {useEffect, useState} from "react";
+import WeatherImage from "../WeatherImage";
 
 
 const DayOne = (props) => {
 
+    console.log(props.weathercodeDaily)
     const [currentDate, setCurrentDate] = useState("");
 
     useEffect(() => {
@@ -27,6 +31,7 @@ const DayOne = (props) => {
             {/*            Made split because i didn't like initial time format*/}
             <p>Sunrise: {props.sunrise[0].split("T")[1]}</p>
             <p>Sunset: {props.sunset[0].split("T")[1]}</p>
+            <WeatherImage weatherImage={props.weathercodeDaily[0]}/>
 
 
             {/*Don't like tables, made table this way*/}
@@ -49,7 +54,7 @@ const DayOne = (props) => {
                     </ul>
                 </div>
 
-
+           
                 <div className={s.comfortBlock}>
                     <ul className={s.apparent}>
                         <li>Feels like</li>

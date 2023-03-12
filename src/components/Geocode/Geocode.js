@@ -4,10 +4,10 @@ import s from './Geocode.module.css'
 
 const Geocode = (props) => {
 
-    const [latitude, setLatitude] = useState('35.69')
-const [longitude, setLongitude] = useState('51.39')
+    const [latitude, setLatitude] = useState('51.53')
+const [longitude, setLongitude] = useState('46.03')
     const [city, setCity] = useState('');
-    const [cityDisplayed, setCityDisplayed] = useState('Tehran')
+    const [cityDisplayed, setCityDisplayed] = useState('Saratov')
     const URL = `https://api.opencagedata.com/geocode/v1/json?key=af0e1b37c47143bab3e89eb309b85bc9&q=${encodeURIComponent(city)}`
 
 

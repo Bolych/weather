@@ -1,7 +1,8 @@
 
 .tableBody {
     overflow: hidden;
-    background-color: rgba(204,190,170,0.74);
+    /*background-color: rgba(204,190,170,0.74);*/
+    background-color: rgba(232, 209, 195, 0.74);
     display: grid;
     grid-template-columns: 0.5fr 1fr 1fr;
     /*grid-template-rows: 200px 1fr;*/
@@ -9,10 +10,24 @@
             "timeTempBlock comfortBlock precipitationsBlock";
     white-space: nowrap;
     overflow-x: scroll;
+
+}
+
+ul li:nth-child(1) {
+    font-weight: bold;
 }
 
 
-li:nth-child(odd) {
+/*temporary solution*/
+.tableBody div:nth-child(1) {
+margin-left: 0.3em;
+}
+
+.tableBody  li:nth-last-child(1) {
+    margin-bottom: 1em;
+}
+
+li:nth-child(even) {
     background-color: #f2f2f2;
 }
 
@@ -86,6 +101,7 @@ grid-area: comfortBlockHeader;
 .dailyHeader {
     display: flex;
     height: 4.5em;
+    margin-left: 0.3em;
 }
 
 .weatherImage img {

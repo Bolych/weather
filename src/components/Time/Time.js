@@ -6,7 +6,7 @@ function Time() {
     useEffect(() => {
         const intervalId = setInterval(() => {
             const now = new Date();
-            setDateTime(now.toLocaleString());
+            setDateTime(now.toString());
         }, 1000);
 
         return () => clearInterval(intervalId);
@@ -14,7 +14,6 @@ function Time() {
 
     return (
         <div>
-            <h1>Current Date and Time</h1>
             <p>{dateTime}</p>
         </div>
     );

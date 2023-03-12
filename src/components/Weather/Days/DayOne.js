@@ -1,4 +1,3 @@
-import image1 from "../../../images/condition-icons/brokenclouds.png"
 
 import s from './Hourly.module.css'
 import {useEffect, useState} from "react";
@@ -22,6 +21,7 @@ const DayOne = (props) => {
         const formattedDate = `${currentDayName}, ${month}/${day}/${year}`;
         setCurrentDate(formattedDate);
     }, []);
+
 
     return (
 

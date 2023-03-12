@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import WeatherImage from "../WeatherImage";
 
 
-const DaySix = (props) => {
+const DayFive = (props) => {
 
     const [currentDate, setCurrentDate] = useState("");
 
@@ -13,7 +13,7 @@ const DaySix = (props) => {
         const currentDateObj = new Date();
         const dayOfWeek = currentDateObj.getDay();
         const month = String(currentDateObj.getMonth() + 1).padStart(2, "0"); // Ensure month has two digits
-        const day = currentDateObj.getDate() + 5;
+        const day = currentDateObj.getDate() + 4;
         const year = currentDateObj.getFullYear();
         const currentDayName = dayNames[dayOfWeek];
         const formattedDate = `${currentDayName}, ${month}/${day}/${year}`;
@@ -24,11 +24,17 @@ const DaySix = (props) => {
 
 
         <div>
-            <p>Today: {currentDate}</p>
-            {/*            Made split because i didn't like initial time format*/}
-            <p>Sunrise: {props.sunrise[5].split("T")[1]}</p>
-            <p>Sunset: {props.sunset[5].split("T")[1]}</p>
-            <WeatherImage weatherImage={props.weathercodeDaily[5]}/>
+            <div className={s.dailyHeader}>
+                <div className={s.dailyHeaderText}>
+                    <p>{currentDate}</p>
+                    {/*            Made split because i didn't like initial time format*/}
+                    <p>Sunrise: {props.sunrise[4].split("T")[1]}</p>
+                    <p>Sunset: {props.sunset[4].split("T")[1]}</p>
+                </div>
+                <div className={s.weatherImage}>
+                    <WeatherImage weatherImage={props.weathercodeDaily[0]}/>
+                </div>
+            </div>
 
 
 
@@ -40,13 +46,13 @@ const DaySix = (props) => {
 
                     <ul className={s.timeTempBlockTime}>
                         <li>Time</li>
-                        {props.hourlyTemp.slice(120, 144).map((item, index) => (
+                        {props.hourlyTemp.slice(96, 120).map((item, index) => (
                             <li key={index}>{`${("0" + index).slice(-2)}:00`}</li>
                         ))}
                     </ul>
                     <ul className={s.timeTempBlockTemperature}>
                         <li>Temperature</li>
-                        {props.hourlyTemp.slice(120, 144).map((item, index) => (
+                        {props.hourlyTemp.slice(96, 120).map((item, index) => (
                             <li key={index}> {item} °C</li>
                         ))}
                     </ul>
@@ -56,21 +62,21 @@ const DaySix = (props) => {
                 <div className={s.comfortBlock}>
                     <ul className={s.apparent}>
                         <li>Feels like</li>
-                        {props.apparentTemp.slice(120, 144).map((item, index) => (
+                        {props.apparentTemp.slice(96, 120).map((item, index) => (
                             <li key={index}>{item} °C</li>
                         ))}
                     </ul>
 
                     <ul className={s.windspeed}>
                         <li>Wind</li>
-                        {props.hourlyWind.slice(120, 144).map((item, index) => (
+                        {props.hourlyWind.slice(96, 120).map((item, index) => (
                             <li key={index}>{item} km/h</li>
                         ))}
                     </ul>
 
                     <ul className={s.humidity}>
                         <li>Humidity</li>
-                        {props.humidity.slice(120, 144).map((item, index) => (
+                        {props.humidity.slice(96, 120).map((item, index) => (
                             <li key={index}>{item}%</li>
                         ))}
                     </ul>
@@ -81,7 +87,7 @@ const DaySix = (props) => {
                 <div className={s.precipitationsBlock}>
                     <ul className={s.precipitationsProbability}>
                         <li>Precipitations probability</li>
-                        {props.precipitationProbability.slice(120, 144).map((item, index) => (
+                        {props.precipitationProbability.slice(96, 120).map((item, index) => (
                             <li key={index}>{item}%</li>
                         ))}
                     </ul>
@@ -89,7 +95,7 @@ const DaySix = (props) => {
 
                     <ul className={s.precipitationsAmount}>
                         <li>Precipitations amount</li>
-                        {props.precipitation.slice(120, 144).map((item, index) => (
+                        {props.precipitation.slice(96, 120).map((item, index) => (
                             <li key={index}>{item} mm</li>
                         ))}
                     </ul>
@@ -102,4 +108,4 @@ const DaySix = (props) => {
     )
 }
 
-export default DaySix
+export default DayFive

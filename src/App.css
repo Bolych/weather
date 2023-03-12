@@ -1,3 +1,11 @@
 body {
     background-color: rgba(228,232,253,0.74);
 }
+
+.bold {
+    font-weight: bold;
+}
+
+
+/*scrollbar*/
+

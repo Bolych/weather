@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
-
+import s from './RandomFact.module.css'
 
 function RandomFact() {
     const [fact, setFact] = useState('');
@@ -18,8 +18,8 @@ function RandomFact() {
 
 
     return (
-        <div>
-            <h1>Random Useless Fact</h1>
+        <div className={s.content}>
+            <h3>Random fact:</h3>
             <p>{fact}</p>
         </div>
     );

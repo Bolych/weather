@@ -1,29 +1,22 @@
 import './App.css';
-
 import RandomFact from "./components/RandomFact/RandomFact";
-import Time from "./components/Time/Time";
 import Weather from "./components/Weather/Weather";
+import Header from "./components/Header/Header";
 
 
 function App() {
 
+
   return (
       <div>
-          <div>
-              <Time/>
-          </div>
+          <Header/>
+
           <div>
               <RandomFact/>
           </div>
-
           <div>
               <Weather/>
           </div>
-<br/>
-<br/>
-<br/>
-
-
       </div>
 
   )

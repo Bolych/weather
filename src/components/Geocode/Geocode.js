@@ -71,14 +71,14 @@ const [longitude, setLongitude] = useState('51.39')
 
 
     return (
-        <div>
+        <div className={s.content}>
             <label>
-                Enter a city:
+               <span className='bold'>Enter city:</span>
                 <input className={s.inputCity} type="text" value={city} onChange={handleCityChange} onKeyDown={handleKeyPress} />
             </label>
-            <button onClick={handleGetCoordinates}>Get Coordinates</button>
+            <button className={s.geocodeButton} onClick={handleGetCoordinates}>Get Coordinates</button>
             {latitude && longitude && (
-                <div>
+                <div className='bold'>
                     <p>Current place: {cityDisplayed}</p>
                     Latitude: {latitude}<br />
                     Longitude: {longitude}

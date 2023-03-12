@@ -1,0 +1,15 @@
+
+.header {
+    height: 3em;
+    background-color: rgba(38,56,157,0.74);
+    display: flex;
+    align-items: center;
+
+}
+
+.time {
+    margin-left: 0.3em;
+    color: whitesmoke;
+    font-size: 1.3em;
+}
+

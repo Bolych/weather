@@ -1,4 +1,3 @@
-
 import s from './Hourly.module.css'
 import {useEffect, useState} from "react";
 import WeatherImage from "../WeatherImage";
@@ -11,7 +10,7 @@ const DayOne = (props) => {
 
     useEffect(() => {
         // get component's date
-        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const currentDateObj = new Date();
         const dayOfWeek = currentDateObj.getDay();
         const month = String(currentDateObj.getMonth() + 1).padStart(2, "0"); // Ensure month has two digits

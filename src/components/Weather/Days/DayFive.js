@@ -9,9 +9,9 @@ const DayFive = (props) => {
 
     useEffect(() => {
         // get component's date
-        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const currentDateObj = new Date();
-        const dayOfWeek = currentDateObj.getDay();
+        const dayOfWeek = currentDateObj.getDay() + 4;
         const month = String(currentDateObj.getMonth() + 1).padStart(2, "0"); // Ensure month has two digits
         const day = currentDateObj.getDate() + 4;
         const year = currentDateObj.getFullYear();
@@ -35,7 +35,6 @@ const DayFive = (props) => {
                     <WeatherImage weatherImage={props.weathercodeDaily[0]}/>
                 </div>
             </div>
-
 
 
             {/*Don't like tables, made table this way*/}

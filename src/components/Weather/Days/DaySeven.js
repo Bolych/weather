@@ -9,9 +9,9 @@ const DaySeven = (props) => {
 
     useEffect(() => {
         // get component's date
-        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const currentDateObj = new Date();
-        const dayOfWeek = currentDateObj.getDay();
+        const dayOfWeek = currentDateObj.getDay() + 6;
         const month = String(currentDateObj.getMonth() + 1).padStart(2, "144"); // Ensure month has two digits
         const day = currentDateObj.getDate() + 6;
         const year = currentDateObj.getFullYear();

@@ -17,35 +17,27 @@ li:nth-child(odd) {
 }
 
 .timeTempBlock{
-
-
     grid-area: timeTempBlock;
     display: grid;
     grid-template-areas:
     "time temp"
 }
 
-
 .timeTempBlockHeader{
     grid-area: timeTempBlockHeader;
     text-align: center;
-
 }
 
 .timeTempBlockTime{
 grid-area: time;
-
-
 }
 
 .timeTempBlockTemperature{
 grid-area: temp;
     text-align: center;
-
 }
 
 .comfortBlock{
-
     grid-area: comfortBlock;
     display: grid;
     grid-template-areas:
@@ -55,7 +47,6 @@ grid-area: temp;
 .comfortBlockHeader{
 grid-area: comfortBlockHeader;
     text-align: center;
-
 }
 
 .apparent{
@@ -71,11 +62,9 @@ grid-area: comfortBlockHeader;
 .humidity{
     grid-area: humidity;
     text-align: center;
-
 }
 
 .precipitationsBlock {
-
     grid-area: precipitationsBlock;
     display: grid;
     grid-template-areas:
@@ -85,12 +74,29 @@ grid-area: comfortBlockHeader;
 .precipitationsAmount {
     grid-area: precipitationsAmount;
     text-align: center;
-
 }
 
 .precipitationsProbability {
     grid-area: precipitationsProbability;
     text-align: center;
+}
+
+/* Header of Daily Weather*/
+
+.dailyHeader {
+    display: flex;
+    height: 4.5em;
+}
+
+.weatherImage img {
+    height: 4em;
+    width: 100%;
+    margin-top: -0.5em;
+}
+
+.weatherImage {
+    height: 100px; overflow: hidden;
+
 }
 
 

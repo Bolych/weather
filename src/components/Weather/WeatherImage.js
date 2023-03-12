@@ -1,6 +1,3 @@
-
-
-
 import brokenCloudsImg from "../../images/condition-icons/brokenclouds.png"
 import clearnight from "../../images/condition-icons/clearnight.png"
 import clouds from "../../images/condition-icons/clouds.png"
@@ -23,7 +20,6 @@ import thunderstormoverclouds from "../../images/condition-icons/thunderstormove
 // import  from ""
 
 
-
 console.log(`imported image:  ${clouds}`)
 
 function WeatherImage(props) {
@@ -34,22 +30,24 @@ function WeatherImage(props) {
 
     let imageUrl;
     switch (props.weatherImage) {
-        case 0 || 2:
+        case 0:
+        case 2:
             imageUrl = sunny;
             break;
+            break;
+        case 1:
         case 3:
             imageUrl = cloudy;
             break;
-        case 1 || 3:
-            imageUrl = cloudy;
-            break;
-        case 13 || 29:
+        case 13:
+        case 29:
             imageUrl = thunderstormoverclouds;
             break;
         case 20:
             imageUrl = lightsnowclouds;
             break
-        case 21 || 24:
+        case 21:
+        case 24:
             imageUrl = lightrain
             break
         case 22:
@@ -58,34 +56,85 @@ function WeatherImage(props) {
         case 23:
             imageUrl = passingshower;
             break
-        case 25 || 27:
+        case 25:
+        case 27:
             imageUrl = heavyrainovercast;
             break
         case 26:
             imageUrl = heavysnowovercast;
             break
-        case 50 || 51 || 52 || 53 || 54 || 55 || 56 || 57 || 58 || 59 :
+        case 50:
+        case 51:
+        case 52:
+        case 53:
+        case 54:
+        case 55:
+        case 56:
+        case 57:
+        case 58:
+        case 59 :
             imageUrl = lightrain;
             break;
-        case 10 || 11|| 12 || 28 || 40 || 41 || 41 || 43 || 44 || 45 || 46 || 47 || 48 || 49 :
+        case 10:
+        case 11:
+        case 12:
+        case 28:
+        case 40:
+        case 41:
+        case 43:
+        case 44:
+        case 45:
+        case 46:
+        case 47:
+        case 48:
+        case 49 :
             imageUrl = fog;
             break;
-        case 60 || 61 || 66:
+        case  60:
+        case 61:
+        case 66:
             imageUrl = passingshower
             break;
-        case 62 || 63 || 67:
+        case 62:
+        case 63:
+        case 67:
             imageUrl = lightrain
             break;
-        case 64 || 65:
+        case 64:
+        case 65:
             imageUrl = heavyrainovercast
             break;
-        case 70 || 71 :
+        case 70:
+        case 71 :
             imageUrl = lightsnowclouds;
             break;
-        case  72 || 73 || 74 || 75 || 77:
+        case  72:
+        case 73:
+        case 74:
+        case 75:
+        case 77:
             imageUrl = heavysnowovercast;
             break;
-        case  80|| 81 || 82 || 83 || 84 || 85 || 86 || 87 || 88 || 89 || 90 || 91 || 92 || 93 || 94 || 95 || 96 || 97 || 98 || 99:
+        case  80:
+        case 81:
+        case 82:
+        case 83:
+        case 84:
+        case 85:
+        case 86:
+        case 87:
+        case 88:
+        case 89:
+        case 90:
+        case 91:
+        case 92:
+        case 93:
+        case 94:
+        case 95:
+        case 96:
+        case 97:
+        case 98:
+        case 99:
             imageUrl = thunderstormoverclouds
             break;
 
@@ -96,7 +145,6 @@ function WeatherImage(props) {
 
     return <img src={imageUrl} alt="_"/>;
 }
-
 
 
 export default WeatherImage

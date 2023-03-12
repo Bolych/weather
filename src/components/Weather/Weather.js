@@ -28,7 +28,7 @@ function Weather() {
                         longitude: lon,
                         timezone,
                         hourly: 'temperature_2m,apparent_temperature,precipitation,precipitation_probability,windspeed_10m,relativehumidity_2m,cloudcover,weathercode',
-                        daily: 'weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,windspeed_10m_max,sunrise,sunset,weathercode',
+                        daily: 'weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,windspeed_10m_max,sunrise,sunset,weathercode,shortwave_radiation_sum',
                         current_weather: true,
                     }
                 })
@@ -81,7 +81,8 @@ function Weather() {
                                                              sunrise={weather.daily.sunrise}
                                                              sunset={weather.daily.sunset}
                                                              weathercodeDaily={weather.daily.weathercode}
-                                                             humidity={weather.hourly.relativehumidity_2m}/>}/>
+                                                             humidity={weather.hourly.relativehumidity_2m}
+                            />}/>
 
                             <Route path='today' element={<DayOne apparentTemp={weather.hourly.apparent_temperature}
                                                                   hourlyRain={weather.hourly.rain}

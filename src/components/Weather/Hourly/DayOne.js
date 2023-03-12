@@ -27,12 +27,17 @@ const DayOne = (props) => {
 
 
         <div>
-            <p>Today: {currentDate}</p>
-            {/*            Made split because i didn't like initial time format*/}
-            <p>Sunrise: {props.sunrise[0].split("T")[1]}</p>
-            <p>Sunset: {props.sunset[0].split("T")[1]}</p>
-            <WeatherImage weatherImage={props.weathercodeDaily[0]}/>
-
+            <div className={s.dailyHeader}>
+                <div className={s.dailyHeaderText}>
+                    <p>Today: {currentDate}</p>
+                    {/*            Made split because i didn't like initial time format*/}
+                    <p>Sunrise: {props.sunrise[0].split("T")[1]}</p>
+                    <p>Sunset: {props.sunset[0].split("T")[1]}</p>
+                </div>
+                <div className={s.weatherImage}>
+                    <WeatherImage weatherImage={props.weathercodeDaily[0]}/>
+                </div>
+            </div>
 
             {/*Don't like tables, made table this way*/}
             <div className={s.tableBody}>
@@ -54,7 +59,7 @@ const DayOne = (props) => {
                     </ul>
                 </div>
 
-           
+
                 <div className={s.comfortBlock}>
                     <ul className={s.apparent}>
                         <li>Feels like</li>

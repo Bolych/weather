@@ -17,14 +17,10 @@ import passingshower from "../../images/condition-icons/passingshower.png"
 import snowcloudy from "../../images/condition-icons/snowcloudy.png"
 import sunny from "../../images/condition-icons/sunny.png"
 import thunderstormoverclouds from "../../images/condition-icons/thunderstormoverclouds.png"
-// import  from ""
 
 
-console.log(`imported image:  ${clouds}`)
 
 function WeatherImage(props) {
-
-    console.log(` weather codes: ${props.weatherImage}`)
 
     // below values that corresponds to WMO codes accepted from API. WMO codes you can find in web
 
@@ -141,8 +137,6 @@ function WeatherImage(props) {
         default:
             imageUrl = 'unknown.jpg';
     }
-    console.log(`image path: ${imageUrl}`)
-
     return <img src={imageUrl} alt="_"/>;
 }
 

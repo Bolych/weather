@@ -12,24 +12,19 @@ const DayTwo = (props) => {
         const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
         const currentDateObj = new Date();
         const dayOfWeek = currentDateObj.getDay() + 1;
-        const month = String(currentDateObj.getMonth() + 1).padStart(2, "0"); // Ensure month has two digits
+        const month = String(currentDateObj.getMonth() + 1).padStart(2, "0");
         const day = currentDateObj.getDate() + 1;
         const year = currentDateObj.getFullYear();
         const currentDayName = dayNames[dayOfWeek];
-        const formattedDate = `${currentDayName}, ${month}/${day}/${year}`;
+        const formattedDate = `${currentDayName}, ${day}/${month}/${year}`;
         setCurrentDate(formattedDate);
     }, []);
 
-    console.log(`weathercode props to pass ${props.weathercodeDaily}`)
-
     return (
-
-
         <div>
             <div className={s.dailyHeader}>
                 <div className={s.dailyHeaderText}>
                     <p>{currentDate}</p>
-                    {/*            Made split because i didn't like initial time format*/}
                     <p>Sunrise: {props.sunrise[1].split("T")[1]}</p>
                     <p>Sunset: {props.sunset[1].split("T")[1]}</p>
                 </div>
@@ -37,10 +32,7 @@ const DayTwo = (props) => {
                     <WeatherImage weatherImage={props.weathercodeDaily[0]}/>
                 </div>
             </div>
-
-            {/*Don't like tables, made table this way*/}
             <div className={s.tableBody}>
-
 
                 <div className={s.timeTempBlock}>
 
@@ -58,7 +50,6 @@ const DayTwo = (props) => {
                     </ul>
                 </div>
 
-
                 <div className={s.comfortBlock}>
                     <ul className={s.apparent}>
                         <li>Feels like</li>
@@ -66,23 +57,19 @@ const DayTwo = (props) => {
                             <li key={index}>{item} °C</li>
                         ))}
                     </ul>
-
                     <ul className={s.windspeed}>
                         <li>Wind</li>
                         {props.hourlyWind.slice(24, 48).map((item, index) => (
                             <li key={index}>{item} km/h</li>
                         ))}
                     </ul>
-
                     <ul className={s.humidity}>
                         <li>Humidity</li>
                         {props.humidity.slice(24, 48).map((item, index) => (
                             <li key={index}>{item}%</li>
                         ))}
                     </ul>
-
                 </div>
-
 
                 <div className={s.precipitationsBlock}>
                     <ul className={s.precipitationsProbability}>
@@ -91,19 +78,14 @@ const DayTwo = (props) => {
                             <li key={index}>{item}%</li>
                         ))}
                     </ul>
-
-
                     <ul className={s.precipitationsAmount}>
                         <li>Precipitations amount</li>
                         {props.precipitation.slice(24, 48).map((item, index) => (
                             <li key={index}>{item} mm</li>
                         ))}
                     </ul>
-
                 </div>
-
             </div>
-
         </div>
     )
 }

@@ -8,20 +8,18 @@
             "timeTempBlock comfortBlock precipitationsBlock";
     white-space: nowrap;
     overflow-x: scroll;
-
 }
+
 
 ul li:nth-child(1) {
     font-weight: bold;
 }
 
-
-/*temporary solution*/
 .tableBody div:nth-child(1) {
-margin-left: 0.3em;
+    margin-left: 0.3em;
 }
 
-.tableBody  li:nth-last-child(1) {
+.tableBody li:nth-last-child(1) {
     margin-bottom: 1em;
 }
 
@@ -29,50 +27,50 @@ li:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.timeTempBlock{
+.timeTempBlock {
     grid-area: timeTempBlock;
     display: grid;
     grid-template-areas:
     "time temp"
 }
 
-.timeTempBlockHeader{
+.timeTempBlockHeader {
     grid-area: timeTempBlockHeader;
     text-align: center;
 }
 
-.timeTempBlockTime{
-grid-area: time;
+.timeTempBlockTime {
+    grid-area: time;
 }
 
-.timeTempBlockTemperature{
-grid-area: temp;
+.timeTempBlockTemperature {
+    grid-area: temp;
     text-align: center;
 }
 
-.comfortBlock{
+.comfortBlock {
     grid-area: comfortBlock;
     display: grid;
     grid-template-areas:
     "apparent windspeed humidity"
 }
 
-.comfortBlockHeader{
-grid-area: comfortBlockHeader;
+.comfortBlockHeader {
+    grid-area: comfortBlockHeader;
     text-align: center;
 }
 
-.apparent{
+.apparent {
     grid-area: apparent;
     text-align: center;
 }
 
-.windspeed{
+.windspeed {
     grid-area: windspeed;
     text-align: center;
 }
 
-.humidity{
+.humidity {
     grid-area: humidity;
     text-align: center;
 }
@@ -109,7 +107,8 @@ grid-area: comfortBlockHeader;
 }
 
 .weatherImage {
-    height: 100px; overflow: hidden;
+    height: 100px;
+    overflow: hidden;
 }
 
 

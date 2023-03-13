@@ -1,12 +1,9 @@
 
 .navbar {
     display: flex;
-gap: 0.4em;
+    gap: 0.4em;
     margin-bottom: 0.8em;
-
 }
-
-
 
 .navbar li {
     text-decoration: none;

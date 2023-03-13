@@ -3,7 +3,6 @@ import axios from "axios";
 import {Route, Routes} from "react-router-dom";
 import s from "./Weather.module.css"
 
-
 import DayOne from "./Days/DayOne";
 import DayTwo from "./Days/DayTwo";
 import Geocode from "../Geocode/Geocode";
@@ -22,7 +21,6 @@ function Weather() {
     const [shortLatitude, setShortLatitude] = useState('')
     const [shortLongitude, setShortLongitude] = useState('')
 
-
     const fetchData = async (lat, lon, timezone) => {
         try {
             const res = await axios(url,
@@ -37,37 +35,25 @@ function Weather() {
                     }
                 })
             setWeather(res.data);
-
-
         } catch (err) {
             console.log(err)
         }
     }
-    // console.log(`output: ${weather.daily.windspeed_10m_max}`)
-
 
     useEffect(() => {
         fetchData(shortLatitude, shortLongitude, Intl.DateTimeFormat().resolvedOptions().timeZone)
     }, [shortLatitude, shortLongitude])
 
-
-
-
     return (
-
         <div className={s.content}>
-
             <div className={s.wrapperBeforeDailyForecast}>
-
                 <p className='bold'>We detected your area as: {weather.timezone}</p>
                 <br/>
                 <h3>How to use this app?</h3>
                 <p className='bold'>Type the place in the input field and get weather data about it.</p>
                 <p> You can type just city name, or specify place. You can also type address on local language. Register
                     doesn't matter.</p>
-
                 <p>Correctly examples:</p>
-
                 <div className='examples'>
                     <p> 1. Trierer Straße 15, 99423, Weimar, Deutschland.
                     </p>
@@ -76,16 +62,12 @@ function Weather() {
                     <p>3. Thành phố Hà Nội</p>
                     <p>4. barcelona</p>
                 </div>
-
-
                 <Geocode setShortLatitude={setShortLatitude} setShortLongitude={setShortLongitude}/>
                 <br/>
                 <div>
                     <Navbar/>
                 </div>
             </div>
-
-
             <div>
                 {weather.hourly && (
                     <div>
@@ -110,7 +92,6 @@ function Weather() {
                                                                  precipitationProbability={weather.hourly.precipitation_probability}
                                                                  weathercodeHourly={weather.hourly.weathercode}
                                                                  weathercodeDaily={weather.daily.weathercode}
-
                                                                  sunrise={weather.daily.sunrise}
                                                                  sunset={weather.daily.sunset}
                                                                  humidity={weather.hourly.relativehumidity_2m}
@@ -193,16 +174,11 @@ function Weather() {
                                                                weathercodeHourly={weather.hourly.weathercode}
                                                                weathercodeDaily={weather.daily.weathercode}
                             />}/>
-
                         </Routes>
                     </div>
-
                 )}
             </div>
             <br/>
-            <div>
-            </div>
-
         </div>
     );
 }

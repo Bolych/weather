@@ -5,21 +5,13 @@ import Header from "./components/Header/Header";
 
 
 function App() {
-
-
-  return (
-      <div>
-          <Header/>
-
-          <div>
-              <RandomFact/>
-          </div>
-          <div>
-              <Weather/>
-          </div>
-      </div>
-
-  )
+    return (
+        <div>
+            <Header/>
+            <RandomFact/>
+            <Weather/>
+        </div>
+    )
 }
 
 export default App;

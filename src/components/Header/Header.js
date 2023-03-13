@@ -6,12 +6,10 @@ const Header = () => {
     return (
         <div className={s.header}>
             <div className={s.time}>
-<Time/>
+                <Time/>
             </div>
         </div>
-
     )
-
 }
 
 export default Header

@@ -1,4 +1,4 @@
-import s from './Hourly.module.css'
+import s from './Days.module.css'
 import {useEffect, useState} from "react";
 import WeatherImage from "../WeatherImage";
 

@@ -51,6 +51,8 @@ function Weather() {
     }, [shortLatitude, shortLongitude])
 
 
+
+
     return (
 
         <div className={s.content}>

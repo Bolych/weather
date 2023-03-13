@@ -1,11 +1,9 @@
 
 .tableBody {
     overflow: hidden;
-    /*background-color: rgba(204,190,170,0.74);*/
     background-color: rgba(232, 209, 195, 0.74);
     display: grid;
     grid-template-columns: 0.5fr 1fr 1fr;
-    /*grid-template-rows: 200px 1fr;*/
     grid-template-areas:
             "timeTempBlock comfortBlock precipitationsBlock";
     white-space: nowrap;
@@ -112,7 +110,6 @@ grid-area: comfortBlockHeader;
 
 .weatherImage {
     height: 100px; overflow: hidden;
-
 }
 
 

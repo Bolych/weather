@@ -4,13 +4,22 @@ import s from './Geocode.module.css'
 
 const Geocode = (props) => {
 
-    const [latitude, setLatitude] = useState('51.53')
-const [longitude, setLongitude] = useState('46.03')
+
     const [city, setCity] = useState('');
     const [cityDisplayed, setCityDisplayed] = useState('Saratov')
     const URL = `https://api.opencagedata.com/geocode/v1/json?key=af0e1b37c47143bab3e89eb309b85bc9&q=${encodeURIComponent(city)}`
 
+    const [latitude, setLatitude] = useState(51.53);
+    const [longitude, setLongitude] = useState(46.03);
 
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            setLatitude(position.coords.latitude);
+            setLongitude(position.coords.longitude);
+        });
+    } else {
+        console.log("Geolocation is not supported by this browser.");
+    }
     const handleCityChange = (event) => {
         setCity(event.target.value);
         console.log(city)
@@ -20,7 +29,6 @@ const [longitude, setLongitude] = useState('46.03')
         try {
             const res = await axios(URL, {
                 params: {
-
                 }
             })
 
@@ -31,7 +39,7 @@ const [longitude, setLongitude] = useState('46.03')
             const latMinutes = parseInt(latMatches[2]);
             const latSeconds = parseFloat(latMatches[3]);
             const latDecimalDegrees = latDegrees + (latMinutes / 60) + (latSeconds / 3600);
-            const shortenedLatValue = latDecimalDegrees.toFixed(2);
+            const shortenedLatValue = latDecimalDegrees.toFixed(4);
 
             // get short latitude to set it in open-meteo api
 
@@ -41,7 +49,7 @@ const [longitude, setLongitude] = useState('46.03')
             const longMinutes = parseInt(longMatches[2]);
             const longSeconds = parseFloat(longMatches[3]);
             const longDecimalDegrees = longDegrees + (longMinutes / 60) + (longSeconds / 3600);
-            const shortenedLongValue = longDecimalDegrees.toFixed(2);
+            const shortenedLongValue = longDecimalDegrees.toFixed(4);
 
 
 
@@ -54,13 +62,27 @@ const [longitude, setLongitude] = useState('46.03')
         }
     }
 
+    const reverseGeocode = async (lat, lon) => {
+        const URL = `https://api.opencagedata.com/geocode/v1/json?key=af0e1b37c47143bab3e89eb309b85bc9&q=${lat},${lon}`;
+        try {
+            const res = await axios.get(URL);
+            return res.data.results[0].formatted;
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     useEffect(() => {
-        handleGetCoordinates()
-        props.setShortLatitude(latitude)
-        props.setShortLongitude(longitude)
-        setCity('');
-        console.log(city)
-    }, [latitude, longitude])
+        handleGetCoordinates();
+    }, []);
+
+    useEffect(() => {
+        props.setShortLatitude(latitude);
+        props.setShortLongitude(longitude);
+        reverseGeocode(latitude, longitude).then((city) => {
+            setCityDisplayed(city);
+        });
+    }, [latitude, longitude]);
 
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
